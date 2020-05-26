@@ -175,16 +175,15 @@ print ("我叫 %s 今年 %d 岁!" % ('小明', 10))
   - f-string 格式化字符串以 f 开头，后面跟着字符串，字符串中的表达式用大括号 {} 包起来，它会将变量或表达式计算后的值替换进去；
 - 字符串内建函数
   - 字符串查找str.find(sub[, start[, end]])
+
 | 序号 | 方法及描述 |
 | :--- | :--- |
-| 1 | [capitalize()](https://www.runoob.com/python3/python3-string-capitalize.html)
-将字符串的第一个字符转换为大写 |
+| 1 | [capitalize()](https://www.runoob.com/python3/python3-string-capitalize.html) 将字符串的第一个字符转换为大写 |
 | 2 | [center(width, fillchar)](https://www.runoob.com/python3/python3-string-center.html)返回一个指定的宽度 width 居中的字符串，fillchar 为填充的字符，默认为空格。 |
 | 3 | [count(str, beg= 0,end=len(string))](https://www.runoob.com/python3/python3-string-count.html)返回 str 在 string 里面出现的次数，如果 beg 或者 end 指定则返回指定范围内 str 出现的次数 |
 | 4 | [bytes.decode(encoding="utf-8", errors="strict")](https://www.runoob.com/python3/python3-string-decode.html)Python3 中没有 decode 方法，但我们可以使用 bytes 对象的 decode() 方法来解码给定的 bytes 对象，这个 bytes 对象可以由 str.encode() 来编码返回。 |
 | 5 | [encode(encoding='UTF-8',errors='strict')](https://www.runoob.com/python3/python3-string-encode.html)以 encoding 指定的编码格式编码字符串，如果出错默认报一个ValueError 的异常，除非 errors 指定的是'ignore'或者'replace' |
-| 6 | [endswith(suffix, beg=0, end=len(string))](https://www.runoob.com/python3/python3-string-endswith.html)
-检查字符串是否以 obj 结束，如果beg 或者 end 指定则检查指定的范围内是否以 obj 结束，如果是，返回 True,否则返回 False. |
+| 6 | [endswith(suffix, beg=0, end=len(string))](https://www.runoob.com/python3/python3-string-endswith.html) 检查字符串是否以 obj 结束，如果beg 或者 end 指定则检查指定的范围内是否以 obj 结束，如果是，返回 True,否则返回 False. |
 | 7 | [expandtabs(tabsize=8)](https://www.runoob.com/python3/python3-string-expandtabs.html)把字符串 string 中的 tab 符号转为空格，tab 符号默认的空格数是 8 。 |
 | 8 | [find(str, beg=0, end=len(string))](https://www.runoob.com/python3/python3-string-find.html)检测 str 是否包含在字符串中，如果指定范围 beg 和 end ，则检查是否包含在指定范围内，如果包含返回开始的索引值，否则返回-1 |
 | 9 | [index(str, beg=0, end=len(string))](https://www.runoob.com/python3/python3-string-index.html)跟find()方法一样，只不过如果str不在字符串中会报一个异常. |
@@ -235,6 +234,7 @@ print ("我叫 %s 今年 %d 岁!" % ('小明', 10))
 - 与Python字符串不一样的是，列表中的元素是可以改变的；
 - list函数：len(), max(), min(), list(seq)
 - List内置了有很多方法，例如 append()、pop() 等等
+
 | 序号 | 方法 |
 | :--- | :--- |
 | 1 | [list.append(obj)](https://www.runoob.com/python3/python3-att-list-append.html) 在列表末尾添加新的对象 |
@@ -314,6 +314,7 @@ n_list = [x**2 for x in range(10) if x % 2 == 0]
   - 清空：s.clear()
   - 判断元素是否存在：x in s
 - 内置方法
+
 | 方法 | 描述 |
 | :--- | :--- |
 | [add()](https://www.runoob.com/python3/ref-set-add.html) | 为集合添加元素 |
@@ -349,6 +350,7 @@ n_list = [x**2 for x in range(10) if x % 2 == 0]
   - dict_name.clear()
 - 字典的内置函数：len(dict), str(dict), type()
 - 字典类型也有一些内置方法，例如clear()、keys()、values()；
+
 | 序号 | 函数及描述 |
 | :--- | :--- |
 | 1 | [radiansdict.clear()](https://www.runoob.com/python3/python3-att-dictionary-clear.html) 删除字典内所有元素 |
@@ -464,7 +466,7 @@ for var in <sequence>:
 	xx
 else:
 	xx
- 
+
 while xx:
 	xx
 else:
@@ -488,6 +490,7 @@ else:
   - f.tell(): 返回文件对象当前所处的位置, 它是从文件开头开始算起的字节数。
   - f.seek(): 如果要改变文件当前的位置, 可以使用 f.seek(offset, from_what) 函数。
   - f.close()
+
 | 模式 | 描述 |
 | :--- | :--- |
 | r | 以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。 |
@@ -579,7 +582,7 @@ class MyNumbers:
   def __iter__(self):
     self.a = 1
     return self
- 
+
   def __next__(self):
     if self.a <= 20:
       x = self.a
@@ -587,10 +590,10 @@ class MyNumbers:
       return x
     else:
       raise StopIteration
- 
+
 myclass = MyNumbers()
 myiter = iter(myclass)
- 
+
 for x in myiter:
   print(x)
 ```
@@ -602,17 +605,17 @@ for x in myiter:
 - 调用一个生成器函数，返回的是一个迭代器对象。
 ```
 import sys
- 
+
 def fibonacci(n): # 生成器函数 - 斐波那契
     a, b, counter = 0, 1, 0
     while True:
-        if (counter > n): 
+        if (counter > n):
             return
         yield a
         a, b = b, a + b
         counter += 1
 f = fibonacci(10) # f 是一个迭代器，由生成器返回生成
- 
+
 while True:
     try:
         print (next(f), end=" ")
@@ -672,7 +675,7 @@ def printinfo( arg1, **vardict ):
    print ("输出: ")
    print (arg1)
    print (vardict)
- 
+
 # 调用printinfo 函数
 printinfo(1, a=2,b=3)
 ```
@@ -747,6 +750,7 @@ else:
 [https://www.runoob.com/python3/python3-os-file-methods.html](https://www.runoob.com/python3/python3-os-file-methods.html)
 ### 1.8.错误和异常
 python有两种错误容易辨认：语法错误和异常
+
 python assert断言用于判断一个表达式，在表达式条件为false的时候会触发异常。
 ![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2020/png/45340/1590131445312-653dabc1-3d6f-4d57-b115-3c0f3af71e89.png#align=left&display=inline&height=112&margin=%5Bobject%20Object%5D&name=image.png&originHeight=224&originWidth=610&size=82936&status=done&style=none&width=305)
 #### 异常处理
@@ -885,7 +889,7 @@ super(子类，self).__init__(参数1，参数2，....)
   - 内置名称（built-in names）， Python 语言内置的名称，比如函数名 abs、char 和异常名称 BaseException、Exception 等等。
   - 全局名称（global names），模块中定义的名称，记录了模块的变量，包括函数、类、其它导入的模块、模块级的变量和常量。
   - 局部名称（local names），函数中定义的名称，记录了函数的变量，包括函数的参数和局部定义的变量。（类中定义的也是）
-- 命名空间查找顺序：局部->全局-》内置
+- 命名空间查找顺序：局部->全局->内置
 - 命名空间的生命周期：
   - 命名空间的生命周期取决于对象的作用域，如果对象执行完成，则该命名空间的生命周期就结束。因此，我们无法从外部命名空间访问内部命名空间的对象。
 #### 作用域
@@ -952,6 +956,7 @@ logger.debug("debug")
 #### 正则表达式字符串
 
 - 元字符：用来藐视其他字符的特殊字符
+
 | 字符 | 描述 |
 | :--- | :--- |
 | \\ | 转义符，表示转义 |
@@ -972,6 +977,7 @@ logger.debug("debug")
 
 - 正则表达式可以使用字符类，一个字符类定义一组字符，其中任一字符出现在输入字符串中即匹配成功。注意每次匹配只能匹配字符类的一个字符。[ ]
 - 预定义字符类
+
 | 实例 | 描述 |
 | :--- | :--- |
 | . | 匹配任意一个字符 |
@@ -1029,14 +1035,20 @@ a_reduce = reduce(lambda acc, i: acc + i, a, 2) #12
 ```
 
 
-
-
 Reference：
+
 1.廖雪峰python教程：[https://www.liaoxuefeng.com/wiki/1016959663602400](https://www.liaoxuefeng.com/wiki/1016959663602400)
+
 2.菜鸟教程python3教程：[https://www.runoob.com/python3/python3-tutorial.html](https://www.runoob.com/python3/python3-tutorial.html)
+
 3.Python 官网：[https://www.python.org/](https://www.python.org/)
+
 4.Python文档下载地址：[https://www.python.org/doc/](https://www.python.org/doc/)
+
 5.Python标准库：[https://docs.python.org/3/library/index.html](https://docs.python.org/3/library/index.html)
+
 6.Python HOWTODO：[https://docs.python.org/3/howto/index.html](https://docs.python.org/3/howto/index.html)
+
 7.Python教程：[https://docs.python.org/3/tutorial/index.html](https://docs.python.org/3/tutorial/index.html)
+
 8.PEP规范：[https://www.python.org/dev/peps/](https://www.python.org/dev/peps/)
