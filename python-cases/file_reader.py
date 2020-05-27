@@ -1,5 +1,6 @@
 import sys
 import os
+import argparse
 
 def txt_reader(file_name):
     with open(file_name, "r") as f:
@@ -21,14 +22,15 @@ def bin_reader(file_name):
         f.write(string)
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("usage: \npython file_reader.py file_name type(optional)")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-n", "--file_name", dest="name", help="file name", type=str)
+    parser.add_argument("-t", "--file_type", default='txt', dest="type", help="file type", type=str)
+    args = parser.parse_args()
+    if len(sys.argv) < 3:
+        print("usage: \npython file_reader.py -n file_name -t file_type")
         exit(0)
-    file_name = sys.argv[1]
-    type = "txt"
-    if len(sys.argv) >= 3:
-        type = sys.argv[2]
-
+    file_name = args.name
+    type = args.type
     if type == "txt":
         txt_reader(file_name)
     elif type == "bin":
