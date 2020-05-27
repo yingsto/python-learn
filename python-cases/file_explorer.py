@@ -41,7 +41,7 @@ def get_type_from_file_list(s, type):
 
 if __name__ == "__main__":
     if (len(sys.argv) < 3):
-        print("usage: \npython file_explorer.py file_path level type(option)")
+        print("usage: \npython file_explorer.py file_path level type(optional)")
         exit(0)
     file_path = sys.argv[1]
     level = int(sys.argv[2])
