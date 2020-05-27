@@ -5,7 +5,6 @@ import sys
 
 ignore_file = [".git", ".~", ".DS_Store"]
 
-
 def check_ignore_file(s):
     for file in ignore_file:
         if re.search(file, s):
@@ -38,27 +37,42 @@ def get_type_from_file_list(s, type):
             files.append(file)
     return files
 
+def get_file_from_file_list(s, file_name):
+    files = []
+    for file in s:
+        if re.search(file_name, file):
+            files.append(file)
+    return files
+
 
 if __name__ == "__main__":
     if (len(sys.argv) < 3):
-        print("usage: \npython file_explorer.py file_path level type(optional)")
+        print("usage: \npython file_explorer.py file_path level (type name)(optional)")
         exit(0)
     file_path = sys.argv[1]
     level = int(sys.argv[2])
     type = ''
-    if (len(sys.argv) == 4):
+    name = ''
+    if (len(sys.argv) >= 4):
         type = "." + sys.argv[3]
+    if (len(sys.argv) >= 5):
+        name = sys.argv[4]
     s = []
     if(os.path.exists(file_path)):
         get_file_list(file_path, s, level)
+        with open("file_lists.log","w") as f:
+            for file in s:
+                f.write(file)
+                f.write("\n")
+
         files = get_type_from_file_list(s, type)
+        with open("type_files.log","w") as f:
+            for file in files:
+                f.write(file)
+                f.write("\n")
 
-    with open("file_lists.log","w") as f:
-        for file in s:
-            f.write(file)
-            f.write("\n")
-
-    with open("type_files.log","w") as f:
-        for file in files:
-            f.write(file)
-            f.write("\n")
+        files = get_file_from_file_list(s, name)
+        with open("name_files.log","w") as f:
+            for file in files:
+                f.write(file)
+                f.write("\n")
