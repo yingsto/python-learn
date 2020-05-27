@@ -1,6 +1,7 @@
 import os
 import re
 import sys
+import argparse
 
 
 ignore_file = [".git", ".~", ".DS_Store"]
@@ -46,17 +47,19 @@ def get_file_from_file_list(s, file_name):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-p", "--file_path", dest="path", help="file path", type=str)
+    parser.add_argument("-l", "--level_number", default=-1, dest="level", help="level number", type=int)
+    parser.add_argument("-t", "--file_type", default='', dest="type", help="file type", type=str)
+    parser.add_argument("-n", "--file_name", default='', dest="name", help="file name", type=str)
+    args = parser.parse_args()
     if (len(sys.argv) < 3):
-        print("usage: \npython file_explorer.py file_path level (type name)(optional)")
+        print("usage: \npython file_explorer.py -f file_path -l level -t type -n name")
         exit(0)
-    file_path = sys.argv[1]
-    level = int(sys.argv[2])
-    type = ''
-    name = ''
-    if (len(sys.argv) >= 4):
-        type = "." + sys.argv[3]
-    if (len(sys.argv) >= 5):
-        name = sys.argv[4]
+    file_path = args.path
+    level = args.level
+    type = args.type
+    name = args.name
     s = []
     if(os.path.exists(file_path)):
         get_file_list(file_path, s, level)
