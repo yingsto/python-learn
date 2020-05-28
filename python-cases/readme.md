@@ -1,0 +1,2 @@
+- file_explorer.py
+- file_reader.py: txt, bin file
